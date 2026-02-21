@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB0hPBT6uttx-GjBk2PtGRr9mQ_xunINSU",
@@ -12,7 +12,9 @@ const firebaseConfig = {
   measurementId: "G-VHEKXV97GN"
 };
 
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const googleProvider = new GoogleAuthProvider(); // Dodano dostawcę Google
 export const appId = 'lokalny-plon-v1';

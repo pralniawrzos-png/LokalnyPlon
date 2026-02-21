@@ -9,7 +9,7 @@ export const AddAdView = ({ user, setView, setMessage }) => {
     e.preventDefault();
 
     if (!user) {
-      alert("🚨 BŁĄD: Brak połączenia z kontem.");
+      alert("🚨 BŁĄD: Musisz być zalogowany, aby dodać ogłoszenie.");
       return;
     }
 
@@ -22,7 +22,8 @@ export const AddAdView = ({ user, setView, setMessage }) => {
       location: fd.get('location'),
       status: 'pending',
       createdAt: serverTimestamp(),
-      userId: user.uid
+      userId: user.uid,
+      authorEmail: user.email // Zapisujemy kto dodał ogłoszenie
     };
 
     try {
